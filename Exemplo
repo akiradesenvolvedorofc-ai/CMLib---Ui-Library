@@ -1,0 +1,78 @@
+local CMLib = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/akiradesenvolvedorofc-ai/CMLib---Ui-Library/refs/heads/main/CMLib"
+))()
+
+CMLib:KeySystem({
+    Title = "CMLib DEMO",
+    Subtitle = "DEMONSTRAÇÃO",
+    Logo = "rbxassetid://0",
+
+    DiscordLink = "https://discord.gg/seuconvite",
+
+    SaveKey = false,
+
+    -- CONFIGURAÇÃO DO JNKIE FICA AQUI
+    -- Preencha com os dados do seu serviço quando for testar.
+    Junkie = {
+        SDK = "COLOQUE_AQUI_O_LINK_DO_SDK",
+        Service = "SEU_SERVICE",
+        Identifier = "SEU_IDENTIFIER",
+        Provider = "Mixed",
+    },
+
+    OnSuccess = function()
+
+        local Win = CMLib:CreateWindow({
+            Title = "CMLib DEMO",
+            Subtitle = "UI Library - Teste",
+            Logo = "rbxassetid://0"
+        })
+
+        local Main = Win:AddTab({
+            Name = "Main",
+            Icon = "rbxassetid://0"
+        })
+
+        Main:AddLabel("CMLib funcionando!")
+
+        Main:AddButton({
+            Name = "Botão de teste",
+            Description = "Clique para testar o callback.",
+            Callback = function()
+                print("Botão funcionando!")
+            end
+        })
+
+        Main:AddToggle({
+            Name = "Toggle",
+            Description = "Toggle de demonstração.",
+            Default = false,
+            Callback = function(value)
+                print("Toggle:", value)
+            end
+        })
+
+        Main:AddSlider({
+            Name = "Slider",
+            Min = 0,
+            Max = 100,
+            Default = 50,
+            Callback = function(value)
+                print("Slider:", value)
+            end
+        })
+
+        local Credits = Win:AddTab({
+            Name = "Credits",
+            Icon = "rbxassetid://0"
+        })
+
+        Credits:AddLabel("CMLib Demo")
+
+        Credits:AddLink({
+            Name = "Discord",
+            Description = "Comunidade",
+            Url = "https://discord.gg/seuconvite"
+        })
+    end,
+})
